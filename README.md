@@ -1,19 +1,19 @@
 DESCRIPTION:
 This is an app that allows you to buy candles.
 USER STORIES:
-* 404: As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
-* Signup: As an anon I can sign up in the platform so that I can start creating and managing my backlog
-* Login: As a user I can login to the platform so that I can start creating and managing my backlog
-* Logout: As a user I can logout from the platform so no one else can modify my information
-* Add elements: As a user, I can add elements to the shopping cart
-* Delete elements As a user I can delete elements from the shopping cart
-* Special Add elements: As an admin, I can add new candles
-* Special Edit elements: As an admin, I can edit candle entries
-* Special Delete elements: As an admin, I can delete candle entries
-* Check profile: As a user I can check my profile
-* Search: As a user, I can use the search function on the header/navBar
-* Contact (BACKLOG): As a user, I can contact the admins
 
+- 404: As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+- Signup: As an anon I can sign up in the platform so that I can start creating and managing my backlog
+- Login: As a user I can login to the platform so that I can start creating and managing my backlog
+- Logout: As a user I can logout from the platform so no one else can modify my information
+- Add elements: As a user, I can add elements to the shopping cart
+- Delete elements As a user I can delete elements from the shopping cart
+- Special Add elements: As an admin, I can add new candles
+- Special Edit elements: As an admin, I can edit candle entries
+- Special Delete elements: As an admin, I can delete candle entries
+- Check profile: As a user I can check my profile
+- Search: As a user, I can use the search function on the header/navBar
+- Contact (BACKLOG): As a user, I can contact the admins
 
 BACKLOG:
 —shopping cart pop up
@@ -21,15 +21,14 @@ BACKLOG:
 —candle filter
 --social media links
 
-
 CLIENT:
 Routes: (MARINA)
 -> / Homepage
--> /candles/:id  | candles detail page
--> /auth/signup - Signup form 
+-> /candles/:id | candles detail page
+-> /auth/signup - Signup form
 ->/auth/login Login form
--> /user  | user profile 
--> /cart    (NOTE: i think it's /auth/cart?)
+-> /user | user profile
+-> /cart (NOTE: i think it's /auth/cart?)
 -> /checkOut (?)
 ->/confirmation (?)
 
@@ -42,10 +41,8 @@ Routes: (MARINA)
 
 -> 404
 
-
-
 COMPONENTS:
---NavBar 
+--NavBar
 --Account (sign up button / sign in)
 --Sign Up / Create An Account
 --Shopping Cart
@@ -54,9 +51,8 @@ COMPONENTS:
 --Individual Candle
 --Footer
 --Account/User Detail Page
---Order Confirmation 
+--Order Confirmation
 --Footer (shipping, faq, contact, about us, social media) (BACKLOG)
-
 
 IO
 Services:
@@ -64,7 +60,7 @@ Auth Service
 auth.login(user)
 auth.signup(user)
 ( auth.logout() )
-auth.me   (for admin)
+auth.me (for admin)
 auth.getUser() // synchronous
 
 Candle Service
@@ -77,24 +73,21 @@ candle.delete(id)
 
 backlog.filter(fragrance, price)
 
-
-
-
 SERVER:
 MODELS:
 Model #1:
 --User Model (for signing up):
 {
-  first-name: {type: String, required: true, unique: true},
-  last-name: {type: String, required: true, unique: true},
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
+first-name: {type: String, required: true, unique: true},
+last-name: {type: String, required: true, unique: true},
+email: {type: String, required: true, unique: true},
+password: {type: String, required: true},
 }
 
 Model #2 (for logging in):
 {
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
+email: {type: String, required: true, unique: true},
+password: {type: String, required: true},
 }
 
 Model #3:
@@ -151,12 +144,10 @@ Model #7: Contact Us Form
 
 (WORK ON RELATIONSHIPS!)
 
-
-
-API ENDPOINTS/BACKEND ROUTES: 
+API ENDPOINTS/BACKEND ROUTES:
 GET /candles
 (HOMEPAGE)
-body: 
+body:
 list of candles (clicked? leads to GET /account)
 
 GET /candle/:id
@@ -171,7 +162,7 @@ Description
 GET /auth/me
 
 GET /account
-body: 
+body:
 log in form
 log in button
 &
@@ -215,7 +206,6 @@ subtotal
 shipping
 Continue to Checkout button
 
-
 POST /(cart)/checkout
 body: form
 Billing Info:
@@ -235,7 +225,6 @@ Visa
 Paypal
 
 Place an order button
-
 
 POST /(cart)/(checkout)/confirmation
 body: paragraph
@@ -257,8 +246,6 @@ message
 send button
 
 POST /contact-us/sent
-
-
 
 LINKS:
 Trello/Kanban
@@ -283,3 +270,5 @@ The url to your presentation slides
 
 Slides Link
 https://docs.google.com/presentation/d/1wwPEDK9d4uEnxbc2l3OFqHso9MGXCpZYAOywJQAXV2g/edit#slide=id.ge3471791df_0_530
+
+testing

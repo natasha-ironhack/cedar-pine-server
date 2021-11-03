@@ -1,9 +1,11 @@
 const { Schema, model } = require("mongoose");
 
+//NOTE: model is the way that the backend communicates with the database
+
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema(
   {
-    username: {
+    email: {
       type: String,
       // unique: true -> Ideally, should be unique, but its up to you
     },
