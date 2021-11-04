@@ -51,6 +51,8 @@ router.post("/signup", (req, res, next) => {
   });
   // create the user
 });
+
+//this route lets you send the information and log in the user
 router.post("/login", (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -79,6 +81,7 @@ router.post("/login", (req, res, next) => {
       next(error);
     });
 });
+
 router.post("/logout", (req, res, next) => {
   req.session.destroy((error) => {
     if (error) {
@@ -90,6 +93,9 @@ router.post("/logout", (req, res, next) => {
   });
 });
 
+//lets u know if anyone is logged in
+//lets you know if backend has anyone saved in the session
+//lets you know if there's a user in the backend session
 router.get("/loggedin", (req, res, next) => {
   if (req.session.user) {
     return res.json({ user: req.session.user });
