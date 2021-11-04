@@ -37,22 +37,24 @@ module.exports = (app) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
-  //need to config middleware for session:
+
   app.use(
     session({
       secret: process.env.SESSION_SECRET || "another super secret key",
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URI,
+        mongoUrl: process.env.MONGODB_URI,
+        ttl: 1000 * 60 * 60 * 24 * 365,
       }),
       cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 365,
-        sameSite: "none",
-        secure: process.env.NODE_ENV === "production",
+        // sameSite: 'none',
+        // secure: process.env.NODE_ENV === 'production',
       },
     })
   );
+
   app.use((req, res, next) => {
     req.user = req.session.user || null;
     next();
