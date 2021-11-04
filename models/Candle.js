@@ -1,12 +1,14 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const candlesSchema = new Schema(
+const candleSchema = new Schema(
   {
-    // picture,
-    candleName: { type: String, required: true, unique: true },
-    price: { type: number, required: true, unique: true },
-    // Add to cart button,
+    image: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
+    price: { type: Decimal128, required: true },
+    weight: { type: Number, required: true },
+    quantity: { type: Number, required: true },
+    description: { type: String, required: true },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
@@ -14,6 +16,6 @@ const candlesSchema = new Schema(
   }
 );
 
-const Candles = model("Candles", candlesSchema);
+const Candle = model("Candle", candleSchema);
 
-module.exports = Candles;
+module.exports = Candle;
