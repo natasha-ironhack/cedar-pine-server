@@ -5,6 +5,9 @@ router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
+const candlesRoutes = require("./candles.routes.js");
+router.use("/candles", candlesRoutes);
+
 // You put the next routes here 👇
 router.use("/auth", authRoutes);
 

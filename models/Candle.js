@@ -1,12 +1,14 @@
 const { Schema, model } = require("mongoose");
 
+//Decimal128 didn't work
+
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const candleSchema = new Schema(
   {
     image: { type: String, required: true },
     name: { type: String, required: true, unique: true },
-    price: { type: Decimal128, required: true },
-    weight: { type: Number, required: true },
+    price: { type: String, required: true },
+    weight: { type: String, required: true },
     quantity: { type: Number, required: true },
     description: { type: String, required: true },
   },
