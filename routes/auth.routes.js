@@ -19,7 +19,7 @@ router.post("/signup", (req, res, next) => {
   //model is like the middleman
   //(axios is for making calls to APIS, not to db)
   //side-note: ({ email }) === ({ email: email })
-  //res.json is responding by sending a javascript object data 
+  //res.json is responding by sending a javascript object data
   //to the front-end.
   User.findOne({ email }).then((foundUser) => {
     if (foundUser) {
