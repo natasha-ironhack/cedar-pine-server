@@ -45,7 +45,7 @@ router.delete("/:id", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// edit a specific toDo element
+// edit a specific to∆Do element
 router.patch("/:id", (req, res, next) => {
   Candle.findByIdAndUpdate(
     req.params.id,

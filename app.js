@@ -19,6 +19,13 @@ require("./config")(app);
 const allRoutes = require("./routes");
 app.use("/api", allRoutes);
 
+//for CandleImage
+const index = require("./routes/index"); // <== already included
+app.use("/", index); // <== already included
+
+const candleImageRouter = require("./routes/candles.routes"); // <== has to be added
+app.use("/api", candleImageRouter); // <== has to be added
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
