@@ -1,12 +1,13 @@
 const router = require("express").Router();
 const Candle = require("../models/Candle.js");
+const { isOwner } = require("../middlewares/authorization");
 
 // Create a new candle element.
 //want to create a route to create a new element in our database
 //server gonna grab data from database, send it to front-end
 //explanation #2: creates an entry into the database, server grabs it, and
 //sends it back to the front-end with res.json (i think)
-router.post("/create", (req, res, next) => {
+router.post("/create", isOwner, (req, res, next) => {
   const { image, name, price, weight, quantity, description } = req.body;
   Candle.create({
     image,

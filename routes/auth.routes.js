@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
+const { isOwner } = require("../middlewares/authorization");
 
 router.post("/signup", (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
@@ -55,6 +56,7 @@ router.post("/signup", (req, res, next) => {
 });
 
 //this route lets you send the information and log in the user
+//add isOwner here?
 router.post("/login", (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -98,7 +100,7 @@ router.post("/logout", (req, res, next) => {
 //lets u know if anyone is logged in
 //lets you know if backend has anyone saved in the session
 //lets you know if there's a user in the backend session
-router.get("/loggedin", (req, res, next) => {
+router.get("/loggedin", isOwner, (req, res, next) => {
   if (req.session.user) {
     return res.json({ user: req.session.user });
   }

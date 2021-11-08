@@ -15,7 +15,13 @@ const userSchema = new Schema(
       type: String,
       // unique: true -> Ideally, should be unique, but its up to you
     },
-    password: String,
+    password: {
+      type: String,
+    },
+    isOwner: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
