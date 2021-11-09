@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Candle = require("../models/Candle.js");
-const { isOwner } = require("../middlewares/authorization");
+const { isOwner } = require("../middlewares/authorization.js");
 
 // Create a new candle element.
 //want to create a route to create a new element in our database

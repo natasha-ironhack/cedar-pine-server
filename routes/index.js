@@ -2,6 +2,7 @@ const router = require("express").Router();
 const authRoutes = require("./auth.routes");
 const privateRoutes = require("./private.routes");
 const { isLoggedIn } = require("../middlewares/authorization"); // middleware require if used here
+const { isOwner } = require("../middlewares/authorization"); // middleware require if used here
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
