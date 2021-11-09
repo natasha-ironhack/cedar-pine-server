@@ -6,9 +6,13 @@ router.post("/cart", (req, res, next) => {
   //lets u know if anyone is logged in
   //lets you know if backend has anyone saved in the session
   //lets you know if there's a user in the backend session
-  if (req.session.cart) {
-    return res.json({ cart: req.session.cart });
+  //req.session.user
+  if (req.session.user) {
+    next(); // continue
+  } else {
+    res.status(403).json({ message: "Something something something." });
   }
-
   res.status(403).json({ errorMessage: "You're not authenticated." });
 });
+
+module.exports = router;
