@@ -2,8 +2,9 @@ const router = require("express").Router();
 const authRoutes = require("./auth.routes");
 const privateRoutes = require("./private.routes");
 const { isLoggedIn } = require("../middlewares/authorization"); // middleware require if used here
-const { isOwner } = require("../middlewares/authorization"); // middleware require if used here
+// const { isOwner } = require("../middlewares/authorization"); // middleware require if used here
 const cartRoutes = require("./cart.routes");
+const checkoutRoutes = require("./checkout.routes");
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
@@ -20,5 +21,7 @@ router.use("/auth", authRoutes);
 router.use("/private", isLoggedIn, privateRoutes);
 
 router.use("/cart", cartRoutes);
+
+router.use("/checkout", checkoutRoutes);
 
 module.exports = router;

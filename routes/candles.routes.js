@@ -38,7 +38,7 @@ router.get("/:id", (req, res, next) => {
 });
 
 // Delete a specific toDo element
-router.delete("/:id", (req, res, next) => {
+router.delete("/:id", isOwner, (req, res, next) => {
   Candle.findByIdAndDelete(req.params.id)
     .then((data) => res.json("Deleted!" + data._id))
     //sending data to the front
@@ -47,7 +47,7 @@ router.delete("/:id", (req, res, next) => {
 });
 
 // edit a specific to∆Do element
-router.patch("/:id", (req, res, next) => {
+router.patch("/:id", isOwner, (req, res, next) => {
   Candle.findByIdAndUpdate(
     req.params.id,
     {
