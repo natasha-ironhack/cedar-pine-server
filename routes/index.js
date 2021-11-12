@@ -5,6 +5,7 @@ const { isLoggedIn } = require("../middlewares/authorization"); // middleware re
 // const { isOwner } = require("../middlewares/authorization"); // middleware require if used here
 const cartRoutes = require("./cart.routes");
 const checkoutRoutes = require("./checkout.routes");
+const confirmationRoutes = require("./confirmation.routes");
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
@@ -23,5 +24,7 @@ router.use("/private", isLoggedIn, privateRoutes);
 router.use("/cart", cartRoutes);
 
 router.use("/checkout", checkoutRoutes);
+
+router.use("/confirmation", confirmationRoutes);
 
 module.exports = router;
