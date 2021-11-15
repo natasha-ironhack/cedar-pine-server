@@ -1,5 +1,29 @@
 const router = require("express").Router();
 
+router.post("/createCheckout", (req, res, next) => {
+  const {
+    firstName,
+    lastName,
+    country,
+    streetNHouseNumber,
+    postCode,
+    city,
+    email,
+  } = req.body;
+  Billing.create({
+    firstName,
+    lastName,
+    country,
+    streetNHouseNumber,
+    postCode,
+    city,
+    email,
+  })
+    .then((data) => res.json(data))
+    .catch((err) => next(err));
+});
+
+
 router.post("/checkout", (req, res, next) => {
   const { quantity, price, name, weight } = req.body;
 
