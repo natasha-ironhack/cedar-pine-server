@@ -27,6 +27,10 @@ router.post("/create-payment-intent", async (req, res) => {
     ],
   });
 
+  // res.redirect('/confirmation', session.url);
+
+  // res.redirect('/confirmation');
+
   res.send({
     clientSecret: paymentIntent.client_secret,
   });
