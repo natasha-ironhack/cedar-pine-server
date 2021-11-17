@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Candle = require("../models/Candle.js");
 const { isOwner } = require("../middlewares/authorization.js");
+const fileUploader = require("../config/cloudinary.config");
 
 // Create a new candle element.
 //want to create a route to create a new element in our database
@@ -62,6 +63,20 @@ router.patch("/:id", isOwner, (req, res, next) => {
   )
     .then((data) => res.json(data))
     .catch((err) => next(err));
+});
+
+// POST '/api/upload' => Route that will receive an image, send it to Cloudinary via the fileUploader and return the image URL
+router.post('/upload', fileUploader.single('image'), (req, res, next) => {
+  // console.log('file is: ', req.file)
+ 
+  if (!req.file) {
+    next(new Error('No file uploaded!'));
+    return;
+  }
+  // get the URL of the uploaded file and send it as a response.
+  // 'secure_url' can be any name, just make sure you remember to use the same when accessing it on the frontend
+ 
+  res.json({ secure_url: req.file.path });
 });
 
 module.exports = router;

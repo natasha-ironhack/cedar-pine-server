@@ -26,9 +26,8 @@ app.use("/api", allRoutes);
 const index = require("./routes/index"); // <== already included
 app.use("/", index); // <== already included
 
-//(backend route)
-const candleImageRouter = require("./routes/candles.routes"); // <== has to be added
-app.use("/api", candleImageRouter); // <== has to be added
+const candleRouter = require('./routes/candles.routes'); // <== has to be added
+app.use('/api', candleRouter); // <== has to be added
 
 //doesn't start with /api? will go here next:
 
