@@ -7,7 +7,8 @@ const candleSchema = new Schema(
   {
     image: { type: String, required: true },
     name: { type: String, required: true, unique: true },
-    price: { type: String, required: true },
+    currency: { type: String, default: "€" },
+    price: { type: Number, required: true },
     weight: { type: String, required: true },
     quantity: { type: Number, required: true },
     description: { type: String, required: true },
