@@ -7,6 +7,9 @@ const cartRoutes = require("./cart.routes");
 const checkoutRoutes = require("./checkout.routes");
 const confirmationRoutes = require("./confirmation.routes");
 const paymentRoutes = require("./payment.routes");
+const shippingRoutes = require("./shipping.routes");
+const faqRoutes = require("./faq.routes");
+const contactUsRoutes = require("./contact-us.routes");
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
@@ -28,7 +31,16 @@ router.use("/checkout", checkoutRoutes);
 
 router.use("/payment", paymentRoutes);
 
-
 router.use("/confirmation", confirmationRoutes);
+
+// const carouselRoutes = require("./carousel.routes.js");
+// router.use("/carousel", carouselRoutes);
+
+router.use("/shipping", shippingRoutes);
+
+router.use("/faq", faqRoutes);
+
+router.use("/contact-us", contactUsRoutes);
+
 
 module.exports = router;
