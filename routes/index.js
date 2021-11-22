@@ -10,6 +10,7 @@ const paymentRoutes = require("./payment.routes");
 const shippingRoutes = require("./shipping.routes");
 const faqRoutes = require("./faq.routes");
 const contactUsRoutes = require("./contact-us.routes");
+const aboutUsRoutes = require("./about-us.routes");
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
@@ -41,6 +42,9 @@ router.use("/shipping", shippingRoutes);
 router.use("/faq", faqRoutes);
 
 router.use("/contact-us", contactUsRoutes);
+
+router.use("/about-us", aboutUsRoutes);
+
 
 
 module.exports = router;
