@@ -45,6 +45,4 @@ router.use("/contact-us", contactUsRoutes);
 
 router.use("/about-us", aboutUsRoutes);
 
-
-
 module.exports = router;
