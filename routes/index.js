@@ -11,6 +11,10 @@ const shippingRoutes = require("./shipping.routes");
 const faqRoutes = require("./faq.routes");
 const contactUsRoutes = require("./contact-us.routes");
 const aboutUsRoutes = require("./about-us.routes");
+const contactConfirmationRoutes = require("./contact-confirmation.routes");
+const homeRoutes = require("./home.routes");
+const diffusersRoutes = require("./diffusers.routes");
+const waxmeltsRoutes = require("./wax-melts.routes");
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
@@ -44,5 +48,13 @@ router.use("/faq", faqRoutes);
 router.use("/contact-us", contactUsRoutes);
 
 router.use("/about-us", aboutUsRoutes);
+
+router.use("/contact-confirmation", contactConfirmationRoutes);
+
+router.use("/home", homeRoutes);
+
+router.use("/diffusers", diffusersRoutes);
+
+router.use("/waxmelts", waxmeltsRoutes);
 
 module.exports = router;
