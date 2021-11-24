@@ -16,9 +16,11 @@ const homeRoutes = require("./home.routes");
 const diffusersRoutes = require("./diffusers.routes");
 const waxmeltsRoutes = require("./wax-melts.routes");
 
-router.get("/", (req, res, next) => {
-  res.json("All good in here");
-});
+
+// router.get("/", (req, res, next) => {
+//   res.json("All good in here");
+// });
+router.use("/home", homeRoutes);
 
 const candlesRoutes = require("./candles.routes.js");
 router.use("/candles", candlesRoutes);
@@ -50,8 +52,6 @@ router.use("/contact-us", contactUsRoutes);
 router.use("/about-us", aboutUsRoutes);
 
 router.use("/contact-confirmation", contactConfirmationRoutes);
-
-router.use("/home", homeRoutes);
 
 router.use("/diffusers", diffusersRoutes);
 

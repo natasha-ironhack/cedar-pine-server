@@ -13,7 +13,7 @@ router.get("/", (req, res, next) => {
 
   const privateData = {
     message:
-      "We're glad to see you again. You can check out our extensive list of candles below. Make sure to come back often to check our special deals and coupons available on your account!",
+      "We're glad to see you again. You can check out our extensive list of candles below. Make sure to come back often to check out special deals and coupons available on your account!",
   };
 
   res.status(200).json(privateData); // send the data with a 200 message
