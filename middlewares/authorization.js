@@ -1,7 +1,6 @@
 // here is where all our authorization middlewares should be (isLoggedIn, isAdmin, isOwner)
 const User = require("../models/User.model.js");
 
-
 module.exports = {
   isLoggedIn: (req, res, next) => {
     // if the user has an active session, continue
@@ -27,6 +26,7 @@ module.exports = {
     //element to be deleted or edit
     // yes => next()
     // no => error
+    console.log(req.session.user);
     if (req.session.user.isOwner) {
       next();
     } else {
