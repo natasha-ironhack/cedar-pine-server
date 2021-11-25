@@ -31,14 +31,14 @@ router.get("/all", (req, res, next) => {
 });
 //get is only for getting info
 
-// Display a specific ToDo element with all info
+// Display a specific element with all info
 router.get("/:id", (req, res, next) => {
   Candle.findById(req.params.id)
     .then((data) => res.json(data))
     .catch((err) => next(err));
 });
 
-// Delete a specific toDo element
+// Delete a specific element
 router.delete("/:id", isOwner, (req, res, next) => {
   Candle.findByIdAndDelete(req.params.id)
     .then((data) => res.json("Deleted!" + data._id))
@@ -47,7 +47,7 @@ router.delete("/:id", isOwner, (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// edit a specific to∆Do element
+// edit a specific element
 router.patch("/:id", isOwner, (req, res, next) => {
   Candle.findByIdAndUpdate(
     req.params.id,
