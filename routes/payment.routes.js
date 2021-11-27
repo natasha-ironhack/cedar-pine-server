@@ -30,7 +30,7 @@ router.post("/create-payment-intent", async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
     currency: "eur",
-    payment_method_types: ["card", "bancontact", "ideal"],
+    payment_method_types: ["ideal", "bancontact", "ideal"],
   });
 
   // res.redirect('/confirmation', session.url);
